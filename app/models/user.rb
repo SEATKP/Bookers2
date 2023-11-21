@@ -4,12 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # name：一意性を持たせ、かつ2～20文字の範囲で設定してください。
+
   validates:name,
     presence:true,
     length:{minimum:2,maximum:20},
     uniqueness:true
-  # introduction：最大50文字までに設定してください。
+
   validates:introduction,
     length:{maximum:50}
 

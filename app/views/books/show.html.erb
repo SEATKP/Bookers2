@@ -1,21 +1,15 @@
-<!--
-本の詳細
--->
+
 <div class="container pt-3 pb-5">
   <div class="row">
     <div class="col-md-3 pr-1">
-      <!--プロフィール（部分テンプレート）-->
       <%= render "users/userinfo",user:@user %>
-      <!--投稿フォーム（部分テンプレート）-->
       <%= render "books/booksubmit",book:@book_new %>
     </div>
 
     <div class="col-md-8 offset-md-1">
-      <!--book詳細-->
       <h1>Book detail</h1>
         <div>
           <table class="table">
-            <!--データ-->
             <tbody>
               <tr>
                 <td>
@@ -29,13 +23,11 @@
                   <%= link_to @book.title %>
                 </td>
                 <td><%= @book.body %></td>
-                <!--編集(edit)-->
                 <td>
                   <% if @book.user == current_user %>
                     <%= link_to "Edit",edit_book_path(@book),class:"btn btn-success" %>
                   <% end %>
                 </td>
-                <!--削除(destroy)-->
                 <td>
                   <% if @book.user == current_user %>
                     <%= link_to "Destroy",book_path(@book),method: :delete,class:"btn btn-danger", data: {confirm: "本当に削除しますか？"} %>

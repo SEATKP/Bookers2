@@ -1,22 +1,18 @@
-<!--一覧ページ-->
+
 <div class="container pt-3 pb-5">
-   <!--エラーメッセージ-->
       <%= render "books/error_message" %>
   <div class="row">
     <div class="col-md-3 pr-1">
-      <!--プロフィール（部分テンプレート）-->
       <%= render "users/userinfo",user:@user %>
 
-       <!--投稿フォーム（部分テンプレート）-->
       <%= render "books/booksubmit",book:@book %>
     </div>
 
-    <!--投稿一覧-->
+
     <div class="col-md-8 offset-md-1">
-      <!--見出し-->
       <h1>Books</h1>
       <table class="table">
-        <!--テーブルのヘッダー-->
+
         <thead>
           <tr>
             <th></th>
@@ -24,19 +20,19 @@
             <th>Opinion</th>
           </tr>
         </thead>
-        <!--実データ-->
+
         <% @books.each do |book| %>
           <tbody>
             <tr>
               <td>
-                <!--ユーザー詳細にリンク-->
+
                 <%= link_to user_path(book.user.id) do %>
                   <%= image_tag book.user.get_profile_image(80,80) %>
                 <% end %>
               </td>
 
               <td>
-                <!--ブック詳細にリンク-->
+
                 <%= link_to book_path(book.id) do %>
                   <%= book.title %>
                 <% end %>
