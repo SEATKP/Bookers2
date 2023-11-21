@@ -1,0 +1,51 @@
+<div class="container pt-3 pb-5">
+  <div class="row">
+    <div class="col-md-3 pr-1">
+      <!--エラーメッセージ-->
+      <%= render "books/error_message" %>
+
+      <!--プロフィール（部分テンプレート）-->
+      <%= render "users/userinfo",user:@user %>
+
+
+      <!--投稿フォーム（部分テンプレート）-->
+      <%= render "books/booksubmit",book:@book %>
+    </div>
+
+  <!--ユーザー一覧-->
+    <div class="col-md-8 offset-md-1">
+      <!--見出し-->
+      <h1>Users</h1>
+      <table class="table table-resposive">
+        <!--テーブルのヘッダー-->
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <!--実データ-->
+        <% @users.each do |user| %>
+          <tbody>
+            <tr>
+              <td>
+                <!--ユーザー画像-->
+                <%= image_tag user.get_profile_image(60,60) %>
+              </td>
+
+              <td>
+                <!--ユーザー名-->
+                  <%= user.name %>
+              </td>
+
+              <td>
+                 <%= link_to "Show",user_path(user.id) %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

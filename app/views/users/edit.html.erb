@@ -1,0 +1,25 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>User info</h2>
+    <%= render "devise/shared/error_messages", resource: @user %>
+    <%= form_with model:@user, local:true do |f| %>
+      <div class="form-group">
+        <label for="user_name">Name</label><br />
+        <%= f.text_field :name, autofocus: true, id:"user_name", placeholder:"名前", class: 'form-control name'%>
+      </div>
+      <div class="form-group">
+        <label for="inputImage">Image</label><br />
+        <%= image_tag @user.profile_image, size: '60x60' if @user.profile_image.attached? %>
+        <%= f.file_field :profile_image %>
+      </div>
+      <div class="form-group">
+        <label for="user_introduction">Introduction</label><br />
+        <%= f.text_area :introduction, rows:'5', id:"user_introduction", placeholder: "introduction", class: 'form-control introduction' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Update User", class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
