@@ -14,7 +14,7 @@
         </thead>
       </table>
 
-      <%= link_to edit_user_path(@user), class:'btn btn-outline-info btn-sm mt-3 mb-5 w-50' do %>
+      <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
 
@@ -46,5 +46,5 @@
             </p>
           </div>
 
-          <%= f.submit 'Create Book', class:'btn btn-info' %>
+          <%= f.submit 'Create Book', class:"btn btn-success" %>
         <% end %>
